@@ -15,7 +15,6 @@ public class Kommune {
     @JoinColumn(name = "region", referencedColumnName = "kode")
     Region region;
 
-
     public String getKode() {
         return kode;
     }

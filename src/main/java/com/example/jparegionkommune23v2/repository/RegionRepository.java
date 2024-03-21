@@ -11,4 +11,6 @@ public interface RegionRepository extends JpaRepository<Region, String> {
     //@Query("delete k from Kommune k where k.region.kode = %?1")
     //void deleteAllByR findByBrandEndsWith(String brand);
 
+
+
 }
