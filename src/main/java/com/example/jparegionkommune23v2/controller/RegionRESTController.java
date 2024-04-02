@@ -7,10 +7,8 @@ import com.example.jparegionkommune23v2.service.ApiServiceGetRegioner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +33,21 @@ public class RegionRESTController {
 
     @GetMapping("regioner")
     public List<Region> regioner() {
+
         return regionRepository.findAll();
+    }
+
+    @GetMapping("region/{kode}")
+    public ResponseEntity<Region> region(@PathVariable String kode) {
+       Region region =  regionRepository.findById(kode).orElseThrow(
+               () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "kode=" + kode + " NOT-FOUND"));
+       return ResponseEntity.ok(region);
+    }
+
+    @PostMapping("/region")
+    public ResponseEntity<Region> postEmployee(@RequestBody Region region) {
+        regionRepository.save(region);
+        return new ResponseEntity<>(region, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/region/{kode}")
