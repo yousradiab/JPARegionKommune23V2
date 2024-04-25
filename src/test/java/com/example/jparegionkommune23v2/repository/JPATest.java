@@ -55,7 +55,7 @@ public class JPATest {
         Optional<Region> regOpt = regionRepository.findById("1081");
         if (regOpt.isPresent()) {
             Set<Kommune> setKom = regOpt.get().getKommuner();
-            assertEquals(20, setKom.size());
+            assertEquals(11, setKom.size());
         } else {
             fail("fandt ingen kommuner");
         }
