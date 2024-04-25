@@ -41,4 +41,5 @@ public class ApiServiceGetKommunerImpl implements ApiServiceGetKommuner {
         return Kommuneer;
     }
 
+
 }

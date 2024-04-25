@@ -2,6 +2,8 @@ package com.example.jparegionkommune23v2.model;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 public class Kommune {
 
@@ -45,5 +47,18 @@ public class Kommune {
 
     public void setRegion(Region region) {
         this.region = region;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Kommune kommune = (Kommune) o;
+        return Objects.equals(kode, kommune.kode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(kode);
     }
 }

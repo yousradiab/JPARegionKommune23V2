@@ -1,5 +1,6 @@
 package com.example.jparegionkommune23v2.controller;
 
+import com.example.jparegionkommune23v2.model.Kommune;
 import com.example.jparegionkommune23v2.model.Region;
 import com.example.jparegionkommune23v2.repository.KommuneRepository;
 import com.example.jparegionkommune23v2.repository.RegionRepository;
@@ -10,8 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 public class RegionRESTController {
@@ -29,6 +32,18 @@ public class RegionRESTController {
     public List<Region> getRegioner() {
         List<Region> lstRegioner = apiServiceGetRegioner.getRegioner();
         return lstRegioner;
+    }
+
+    @GetMapping("/nordjylland")
+        public Set<Kommune> nordj(){
+        Optional<Region> regOpt = regionRepository.findById("1081");
+
+        if (regOpt.isPresent()) {
+            Set<Kommune> kommuner = regOpt.get().getKommuner();
+            return kommuner;
+
+        }
+        return new HashSet<Kommune>();
     }
 
     @GetMapping("regioner")
