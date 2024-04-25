@@ -1,5 +1,6 @@
 package com.example.jparegionkommune23v2;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -11,6 +12,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Dagens første test")
 public class SimpelTest {
 
     @Test
@@ -34,6 +36,7 @@ public class SimpelTest {
         assertArrayEquals(excpected, numbers, "Sortering af 4 tal");
     }
 
+    @DisplayName("Bruger fanzy param test")
     @ParameterizedTest
     @MethodSource("sortnumbersArguments")
     void testArr(int[] numbers, int[] expected) {

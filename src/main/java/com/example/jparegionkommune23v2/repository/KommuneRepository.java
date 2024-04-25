@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface KommuneRepository extends JpaRepository<Kommune, String> {
 
     Optional<Kommune> findByNavn(String navn);
+    Optional<Kommune> findKommuneByNavnAndHref(String navn, String href);
 
     void deleteAllByRegionKode(String kode);
 
