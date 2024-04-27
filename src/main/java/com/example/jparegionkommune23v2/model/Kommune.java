@@ -59,6 +59,10 @@ public class Kommune {
 
     @Override
     public int hashCode() {
+<<<<<<< HEAD
         return Objects.hashCode(kode);
+=======
+        return Objects.hash(kode);
+>>>>>>> 664d19f8dfc315d1e4c83925de2426a25991053e
     }
 }

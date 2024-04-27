@@ -34,6 +34,7 @@ public class RegionRESTController {
         return lstRegioner;
     }
 
+<<<<<<< HEAD
     @GetMapping("/nordjylland")
         public Set<Kommune> nordj(){
         Optional<Region> regOpt = regionRepository.findById("1081");
@@ -42,10 +43,24 @@ public class RegionRESTController {
             Set<Kommune> kommuner = regOpt.get().getKommuner();
             return kommuner;
 
+=======
+
+    @GetMapping("/nordj")
+    public Set<Kommune> nordJ() {
+        Optional<Region> regOpt = regionRepository.findById("1081");
+        if (regOpt.isPresent()) {
+            Set<Kommune> kommuner  = regOpt.get().getKommuner();
+            return kommuner;
+>>>>>>> 664d19f8dfc315d1e4c83925de2426a25991053e
         }
         return new HashSet<Kommune>();
     }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 664d19f8dfc315d1e4c83925de2426a25991053e
     @GetMapping("regioner")
     public List<Region> regioner() {
 
